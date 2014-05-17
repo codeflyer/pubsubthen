@@ -7,7 +7,7 @@
         "test" : "make test"
     },
     "author" : "Davide Fiorello <davide@codeflyer.com> (http://github.com/codeflyer/)",
-    "license" : "http://codeflyer.mit-license.org/",
+    "license" : "MIT",
     "keywords" : [
         "pub sub", "publish", "subscribe", "observer", "mediator", "events", "decoupling"
     ],
