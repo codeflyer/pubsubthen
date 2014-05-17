@@ -1,6 +1,6 @@
 {
     "name" : "pub-sub-then",
-    "version" : "0.1.0",
+    "version" : "0.1.1",
     "description" : "A publisher subscriber library ",
     "main" : "index.js",
     "scripts" : {
