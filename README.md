@@ -31,7 +31,7 @@ PubSubThen.subscribe('my-message', function(arg1, arg2, next) {
     // Do something with arg1
     arg1.push('new value');
     // Do something with arg2
-    arg1.push('new value 2');
+    arg2.push('new value 2');
     
     next();
 });
@@ -39,11 +39,11 @@ PubSubThen.subscribe('my-message', function(arg1, arg2, next) {
 // Publish the topic
 var list1 = [];
 var list2 = [];
-PubSubThen.publish('testSub', list1, list2).then(
+PubSubThen.publish('my-message', list1, list2).then(
     function() {
         try {
             console.log(list1);
-            console.log(list1);
+            console.log(list2);
         } catch(e) {
         }
     },
