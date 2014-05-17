@@ -1,13 +1,13 @@
 {
   "name": "PubSubThen",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A publisher subscriber library ",
   "main": "index.js",
   "scripts": {
     "test": "make test"
   },
   "author": "Davide Fiorello <davide@codeflyer.com> (http://github.com/codeflyer/)",
-  "license": "ISC",
+  "license": "http://codeflyer.mit-license.org/",
   "devDependencies": {
     "gulp": "^3.6.2",
     "gulp-jshint": "^1.6.1",
