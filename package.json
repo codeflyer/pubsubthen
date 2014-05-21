@@ -1,27 +1,56 @@
 {
-    "name" : "pub-sub-then",
-    "version" : "0.1.3",
-    "description" : "A publisher subscriber library ",
-    "main" : "lib/index.js",
-    "scripts" : {
-        "test" : "make test"
-    },
-    "author" : "Davide Fiorello <davide@codeflyer.com> (http://github.com/codeflyer/)",
-    "license" : "MIT",
-    "keywords" : [
-        "pub sub", "publish", "subscribe", "observer", "mediator", "events", "decoupling"
-    ],
-    "devDependencies" : {
-        "gulp" : "^3.6.2",
-        "gulp-jshint" : "^1.6.1",
-        "istanbul" : "^0.2.9",
-        "mocha" : "^1.18.2",
-        "should" : "^3.3.1"
-    },
-    "dependencies" : {
-        "async" : "^0.9.0",
-        "q" : "^1.0.1"
-    },
-    "repository" : "git://github.com/codeflyer/pubsubthen",
-    "contributors" : ["Luca Pau <luca.pau82@gmail.com> (http://github.com/Lughino/)"]
+  "name": "pub-sub-then",
+  "version": "0.1.4",
+  "description": "A publisher subscriber library ",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "author": {
+    "name": "Davide Fiorello",
+    "email": "davide@codeflyer.com",
+    "url": "http://github.com/codeflyer/"
+  },
+  "license": "MIT",
+  "keywords": [
+    "pub sub",
+    "publish",
+    "subscribe",
+    "observer",
+    "mediator",
+    "events",
+    "decoupling"
+  ],
+  "devDependencies": {
+    "gulp": "^3.6.2",
+    "gulp-jshint": "^1.6.1",
+    "istanbul": "^0.2.9",
+    "mocha": "^1.18.2",
+    "should": "^3.3.1"
+  },
+  "dependencies": {
+    "async": "^0.9.0",
+    "q": "^1.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/codeflyer/pubsubthen"
+  },
+  "contributors": [
+    {
+      "name": "Luca Pau",
+      "email": "luca.pau82@gmail.com",
+      "url": "http://github.com/Lughino/"
+    }
+  ],
+  "readme": "# PubSubThen\n\n\n[![Build Status](https://drone.io/github.com/codeflyer/pubsubthen/status.png)](https://drone.io/github.com/codeflyer/pubsubthen/latest)\n[![GitHub version](https://badge.fury.io/gh/codeflyer%2Fpubsubthen.svg)](http://badge.fury.io/gh/codeflyer%2Fpubsubthen)\n\nPubSubThen is a synchronous [publish/subscribe](http://en.wikipedia.org/wiki/Publish/subscribe) node.js module.\n\nPubSubThen was developed for the purpose of complete separation of modules in node.js.\n\nPubSubThen supports a synchronous topic publication.\n\n\n## Getting PubSubThen\n\nThere are several ways of getting PubSubThen\n\n* [Download a tagged version](https://github.com/codeflyer/pubsubthen/tags) from GitHub\n* Install via npm (`npm install pub-sub-then`)\n\n## Examples\n\n### Basic example\n\n```javascript\n// Require\nvar PubSubThen = require('../lib/PubSubThen');\n\n// Add a subscription to topic\nPubSubThen.subscribe('my-message', function(arg1, arg2, next) {\n    // Do something with arg1\n    arg1.push('new value');\n    // Do something with arg2\n    arg2.push('new value 2');\n    \n    next();\n});\n\n// Publish the topic\nvar list1 = [];\nvar list2 = [];\nPubSubThen.publish('my-message', list1, list2).then(\n    function() {\n        try {\n            console.log(list1);\n            console.log(list2);\n        } catch(e) {\n        }\n    },\n    function(err) {\n        throw err;\n    }\n);\n```\n\n### Unsubscribe\n\n```javascript\n// Add a subscription to topic\nvar subscription = PubSubThen.subscribe('my-message', function(args, next) {\n    // Do something \n    \n    next();\n});\n\nPubSubThen.unsubscribe('my-message', subscription);\n```\n\n### Cancel all subscriptions for a message\n\n```javascript\n// Add a subscription to topic\nPubSubThen.subscribe('my-message', function(args, next) {\n    // FUNC 1\n    next();\n});\n\nPubSubThen.subscribe('my-message', function(args, next) {\n    // FUNC 2\n    next();\n});\n\nPubSubThen.removeAllSubscription('my-message');\n```\n\n\n## More about Publish/Subscribe\n\n* [The Many Faces of Publish/Subscribe](http://www.cs.ru.nl/~pieter/oss/manyfaces.pdf) (PDF)\n* [Addy Osmani's mini book on Patterns](http://addyosmani.com/resources/essentialjsdesignpatterns/book/#observerpatternjavascript)\n* [Publish / Subscribe Systems, A summary of 'The Many Faces of Publish / Subscribe'](http://downloads.ohohlfeld.com/talks/hohlfeld_schroeder-publish_subscribe_systems-dsmware_eurecom2007.pdf)\n\n## License\n\nMIT: http://codeflyer.mit-license.org/\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/codeflyer/pubsubthen/issues"
+  },
+  "homepage": "https://github.com/codeflyer/pubsubthen",
+  "_id": "pub-sub-then@0.1.3",
+  "_shasum": "0b2f572d81f5024e5079307bcfae304c23994bff",
+  "_from": "pub-sub-then@0.1.3",
+  "_resolved": "https://registry.npmjs.org/pub-sub-then/-/pub-sub-then-0.1.3.tgz"
 }
